@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>りこち - Spotify Music Stats</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="background-glow"></div>
+    <div class="container">
+        <div class="header">
+            <div>
+                <h1>Spotify Music Activity</h1>
+                <p class="subtitle">Powered by rikochi-AI </p>
+            </div>
+            <a href="index.html" class="back-btn">Refresh</a>
+        </div>
+
+        <!-- Now Playing Section -->
+        <div id="now-playing-container" style="display: none;">
+            <div class="now-playing-card">
+                <img id="np-image" src="" alt="Album Art" class="np-img">
+                <div class="np-info" style="flex: 1;">
+                    <h2>Now Playing</h2>
+                    <div id="np-title" class="np-title">Song Title</div>
+                    <div id="np-artist" class="np-artist">Artist Name</div>
+                    <div class="np-progress">
+                        <div id="np-bar" class="np-bar"></div>
+                    </div>
+                    <div id="np-time" class="np-time">0:00 / 0:00</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <!-- Top Tracks -->
+            <div class="card">
+                <h2>
+                    Top Tracks
+                    <div class="term-selector" id="tracks-term">
+                        <button class="term-btn" onclick="setTerm('tracks', 'short_term')">4 Weeks</button>
+                        <button class="term-btn active" onclick="setTerm('tracks', 'medium_term')">6 Months</button>
+                        <button class="term-btn" onclick="setTerm('tracks', 'long_term')">All Time</button>
+                    </div>
+                </h2>
+                <ul class="item-list" id="top-tracks-list">
+                    <div class="loading">Loading...</div>
+                </ul>
+            </div>
+
+            <!-- Top Artists -->
+            <div class="card">
+                <h2>
+                    Top Artists
+                    <div class="term-selector" id="artists-term">
+                        <button class="term-btn" onclick="setTerm('artists', 'short_term')">4 Weeks</button>
+                        <button class="term-btn active" onclick="setTerm('artists', 'medium_term')">6 Months</button>
+                        <button class="term-btn" onclick="setTerm('artists', 'long_term')">All Time</button>
+                    </div>
+                </h2>
+                <ul class="item-list" id="top-artists-list">
+                    <div class="loading">Loading...</div>
+                </ul>
+            </div>
+
+            <!-- Recently Played -->
+            <div class="card">
+                <h2>Recently Played</h2>
+                <ul class="item-list" id="recent-list">
+                    <div class="loading">Loading...</div>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
